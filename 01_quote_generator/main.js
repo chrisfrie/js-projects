@@ -33,10 +33,21 @@ async function getQuotes() {
         apiQuotes = await response.json();
         newQuote();
     } catch (error) {
-        getQuotes();
+        // Catch error here
         console.log('whoops, no quote', error);
   }
 }
+
+// Tweet Quote 
+function tweetQuote() {
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+    window.open(twitterUrl, '_blank');
+}
+
+// Event Listeners
+newQuoteBtn.addEventListener('click', newQuote);
+twitterBtn.addEventListener('click', tweetQuote);
+
 
 // On Load  --> function to run
 getQuotes();
