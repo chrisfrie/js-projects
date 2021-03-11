@@ -15,8 +15,10 @@ function loading() {
 
 // Hide Loading
 function complete() {
-    quoteContainer.hidden = false;
-    loader.hidden = true;
+    if (!loader.hidden) {
+        quoteContainer.hidden = false;
+        loader.hidden = true;
+    }
 }
 
 // Show new Quote
